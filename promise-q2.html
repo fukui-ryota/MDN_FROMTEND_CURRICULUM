@@ -1,0 +1,41 @@
+<script>
+  function posts1(id) {
+    id = setTimeout(function () {
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+    },3000);
+  }
+  
+  function posts2(id) {
+    id = setTimeout(function () {
+    fetch('https://jsonplaceholder.typicode.com/posts/2')
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+    }, 6000);
+  }
+  
+  function posts3(id) {
+    id = setTimeout(function () {
+    fetch('https://jsonplaceholder.typicode.com/posts/3')
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+    }, 9000);
+  }
+  posts1('id');
+  posts2('id');
+  posts3('id');
+  </script>
+  
