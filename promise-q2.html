@@ -1,6 +1,6 @@
 <script>
-  function posts1(id) {
-    id = setTimeout(function () {
+  const posts1 = () => { 
+    setTimeout(function () {
     fetch('https://jsonplaceholder.typicode.com/posts/1')
     .then((response) => {
       return response.text();
@@ -11,8 +11,8 @@
     },3000);
   }
   
-  function posts2(id) {
-    id = setTimeout(function () {
+  const posts2 = () => { 
+    setTimeout(function () {
     fetch('https://jsonplaceholder.typicode.com/posts/2')
     .then((response) => {
       return response.text();
@@ -23,8 +23,8 @@
     }, 6000);
   }
   
-  function posts3(id) {
-    id = setTimeout(function () {
+  const posts3 = () => { 
+    setTimeout(function () {
     fetch('https://jsonplaceholder.typicode.com/posts/3')
     .then((response) => {
       return response.text();
