@@ -1,0 +1,26 @@
+<script>
+  const q2 = [
+    {
+      id: 1,
+      name: '先輩',
+    },
+    {
+      id: 2,
+      name: '黒髪の乙女',
+    },
+    {
+      id: 3,
+      name: '学園祭事務局長',
+    },
+    {
+      id: 4,
+      name: 'パンツ総番長',
+    },
+  ];
+
+  const result = q2.reduce((a, b) => {
+    a[b.id] = b.name;
+    return a;
+  }, {});
+  console.log(result);
+</script>
