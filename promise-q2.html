@@ -3,9 +3,7 @@
     setTimeout(function () {
     fetch('https://jsonplaceholder.typicode.com/posts/1')
     .then((response) => {
-      return response.text();
-    })
-    .then((data) => {
+      return response.data();
       console.log(data);
     });
     },3000);
@@ -34,8 +32,79 @@
     });
     }, 9000);
   }
-  posts1('id');
-  posts2('id');
-  posts3('id');
-  </script>
+
+
+  const sleep = waitTime => new Promise( resolve => setTimeout(resolve, waitTime) );
+
+  const getPost = async () => {
+    await sleep(3000);
+    try {
+      const posts1 = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+      console.log(posts1.json()); 
+    } catch (error) {
+      console.log("Error:", error);
+    }
+    
+    await sleep(3000);
+    try {
+      const posts2 = await fetch("https://jsonplaceholder.typicode.com/posts/2");
+      console.log(posts2.json()); 
+    } catch (error) {
+      console.log("Error:", error);
+    }
+
+    await sleep(3000);
+    try {
+      const posts3 = await fetch("https://jsonplaceholder.typicode.com/posts/3");
+      console.log(posts3.json()); 
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
+
+
+
+  const getPost1 = async () => {
+    await sleep(3000);
+    try {
+      const posts1 = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+      const getData1 = await posts1.json();
+      return Promise.resolve(getData1);
+    } catch (error) {
+      return Promise.reject("Error:", error);
+    }
+  };
+
+  const getPost2 = async () => {
+    await sleep(6000);
+    try {
+      const posts2 = await fetch('https://jsonplaceholder.typicode.com/posts/2');
+      const getData2 = await posts2.json();
+      return Promise.resolve(getData2);
+    } catch (error) {
+      return Promise.reject("Error:", error);
+    }
+  };
+
+  const getPost3 = async () => {
+    await sleep(9000);
+    try {
+      const posts3 = await fetch('https://jsonplaceholder.typicode.com/posts/3');
+      const getData3 = await posts3.json();
+      return Promise.resolve(getData3);
+    } catch (error) {
+      return Promise.reject("Error:", error);
+    }
+  };
+
+  posts1();
+  posts2();
+  posts3();
+
+  getPost();
+
+  getPost1().then(console.log);
+  getPost2().then(console.log); 
+  getPost3().then(console.log);
+</script>
   
