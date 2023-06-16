@@ -3,7 +3,9 @@
     setTimeout(function () {
     fetch('https://jsonplaceholder.typicode.com/posts/1')
     .then((response) => {
-      return response.data();
+      return response.text();
+    })
+    .then((data) => {
       console.log(data);
     });
     },3000);
@@ -40,7 +42,8 @@
     await sleep(3000);
     try {
       const posts1 = await fetch("https://jsonplaceholder.typicode.com/posts/1");
-      console.log(posts1.json()); 
+      const res = await posts1.text();
+      console.log(res); 
     } catch (error) {
       console.log("Error:", error);
     }
@@ -48,7 +51,8 @@
     await sleep(3000);
     try {
       const posts2 = await fetch("https://jsonplaceholder.typicode.com/posts/2");
-      console.log(posts2.json()); 
+      const res = await posts2.text();
+      console.log(res); 
     } catch (error) {
       console.log("Error:", error);
     }
@@ -56,7 +60,8 @@
     await sleep(3000);
     try {
       const posts3 = await fetch("https://jsonplaceholder.typicode.com/posts/3");
-      console.log(posts3.json()); 
+      const res = await posts3.text();
+      console.log(res); 
     } catch (error) {
       console.log("Error:", error);
     }
@@ -64,7 +69,7 @@
 
 
 
-  const getPost1 = async () => {
+ /* const getPost1 = async () => {
     await sleep(3000);
     try {
       const posts1 = await fetch('https://jsonplaceholder.typicode.com/posts/1');
@@ -95,7 +100,7 @@
     } catch (error) {
       return Promise.reject("Error:", error);
     }
-  };
+  }; */
 
   posts1();
   posts2();
@@ -103,8 +108,5 @@
 
   getPost();
 
-  getPost1().then(console.log);
-  getPost2().then(console.log); 
-  getPost3().then(console.log);
 </script>
   
